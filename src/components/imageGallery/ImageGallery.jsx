@@ -24,7 +24,7 @@ export class ImageGallery extends Component {
 
     // Микрозадача => в макрозадачу
     // setTimeout(() => {
-      fetchGalleryImg(this.props.searchQuery, this.state.page)
+      fetchGalleryImg(this.props.searchQuery, this.state.page + 1)
         .then(({ hits, totalHits }) => {
           if (hits.length === 0) {
             toast.error(
