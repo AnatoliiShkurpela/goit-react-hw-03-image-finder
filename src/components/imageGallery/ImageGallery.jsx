@@ -24,26 +24,26 @@ export class ImageGallery extends Component {
 
     // Микрозадача => в макрозадачу
     // setTimeout(() => {
-    //   fetchGalleryImg(this.props.searchQuery, this.state.page)
-    //     .then(({ hits, totalHits }) => {
-    //       if (hits.length === 0) {
-    //         toast.error(
-    //           'Sorry, there are no more images matching your search query. Please try again.'
-    //         );
-    //         this.setState({ hiddenBnt: true });
-    //       } else
-    //         this.setState(prevState => ({
-    //           images: [...prevState.images, ...hits],
-    //         }));
-    //       if (12 * this.state.page > totalHits) {
-    //         this.setState({ hiddenBnt: true });
-    //         toast.error(
-    //           'Sorry, there are no more images matching your search query.'
-    //         );
-    //       }
-    //     })
-    //     .catch(error => this.setState({ error }))
-    //     .finally(() => this.setState({ loading: false }));
+      fetchGalleryImg(this.props.searchQuery, this.state.page)
+        .then(({ hits, totalHits }) => {
+          if (hits.length === 0) {
+            toast.error(
+              'Sorry, there are no more images matching your search query. Please try again.'
+            );
+            this.setState({ hiddenBnt: true });
+          } else
+            this.setState(prevState => ({
+              images: [...prevState.images, ...hits],
+            }));
+          if (12 * this.state.page > totalHits) {
+            this.setState({ hiddenBnt: true });
+            toast.error(
+              'Sorry, there are no more images matching your search query.'
+            );
+          }
+        })
+        .catch(error => this.setState({ error }))
+        .finally(() => this.setState({ loading: false }));
     // });
   };
 
